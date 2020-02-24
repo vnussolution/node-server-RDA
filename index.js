@@ -12,7 +12,7 @@ const courses = [
     {id:3,name:'course3'},
     {id:4,name:'course4'},
 ];
-let recommendations = [];
+let recommendations = {};
 
 fs.readFile('recommendations.json','utf8',(err,data)=>{
     if(err) res.send(` can't read json file`);
@@ -20,7 +20,7 @@ fs.readFile('recommendations.json','utf8',(err,data)=>{
     const recJson = JSON.parse(data);
     if(!recJson) res.send('no data in json file');
 
-    recommendations = [...recJson];
+    recommendations = recJson;
     console.log(' ==>');
 });
 
